@@ -1,0 +1,61 @@
+<form class="edit-form">
+  <div class="form-group">
+    <h3>Edit Event:</h3>
+    <label for="edit-event-name">Event Title</label>
+    <input type="text" class="form-control" id="edit-event-name" placeholder="Title" [(ngModel)]="selectedEvent.title" name="title">
+  </div>
+  <div class="form-group">
+    <label for="edit-event-date">Date</label>
+    <input type="date" class="form-control" id="edit-event-date" placeholder="Date" [(ngModel)]="selectedEvent.date" name="date">
+  </div>
+  <div class="form-group">
+    <label for="edit-event-time">Time</label>
+    <input type="time" class="form-control" id="edit-event-time" placeholder="Time" [(ngModel)]="selectedEvent.time" name="time">
+  </div>
+  <div class="form-group">
+    <!-- <img src="" alt=""> -->
+    <!-- <label for="edit-event-image">Event Image</label>
+    <input type="file" id="edit-event-image" [(ngModel)]="selectedEvent.image"> -->
+    <label for="edit-event-image">Event Image</label>
+    <input type="text" id="edit-event-image" [(ngModel)]="selectedEvent.image" name="image">
+  </div>
+  <div class="form-group">
+    <label for="edit-event-location">Location</label>
+    <input type="text" class="form-control" id="edit-event-location" placeholder="Location" [(ngModel)]="selectedEvent.location" name="location">
+  </div>
+  <div class="form-group">
+    <label for="edit-event-adress">Adress</label>
+    <input type="text" class="form-control" id="edit-event-adress" placeholder="Adress" [(ngModel)]="selectedEvent.address" name="adress">
+  </div>
+  <div class="form-group">
+    <label for="edit-event-city">City</label>
+    <input type="text" class="form-control" id="edit-event-city" placeholder="City" [(ngModel)]="selectedEvent.city" name="city">
+  </div>
+  <div class="form-group">
+    <label for="edit-event-state">State</label>
+    <input type="text" class="form-control" id="edit-event-state" placeholder="State" [(ngModel)]="selectedEvent.state" name="state">
+  </div>
+  <div class="form-group">
+    <label for="edit-event-zip">Zip</label>
+    <input type="text" class="form-control" id="edit-event-zip" placeholder="Zip" [(ngModel)]="selectedEvent.zip" name="zip">
+  </div>
+  <div class="form-group">
+    <label for="edit-event-description">Description</label>
+    <input type="text" class="form-control" id="edit-event-description" placeholder="Description" [(ngModel)]="selectedEvent.description" name="description">
+  </div>
+  <div class="form-group">
+    <label for="edit-event-organizer">Organizer</label>
+    <input type="text" class="form-control" id="edit-event-organizer" placeholder="Organizer" [(ngModel)]="selectedEvent.organizer" name="organizer">
+  </div>
+  <div class="form-group">
+    <label for="edit-event-organizer-website">Organizer Website</label>
+    <input type="text" class="form-control" id="edit-event-organizer-website" placeholder="Organizer website" [(ngModel)]="selectedEvent.organizerWebsite" name="organizeraWebsite">
+  </div>
+  <div class="form-group">
+    <label for="edit-event-organizer-info">Organizer Info</label>
+    <input type="text" class="form-control" id="edit-event-organizer-info" placeholder="Organizer Info" [(ngModel)]="selectedEvent.organizerInfo" name="organizer">
+  </div>
+
+  <button  (click)="beginUpdatingEvent(selectedEvent)" class="btn btn-default">Edit</button>
+  <button  (click)="beginDeletingEvent(selectedEvent)" class="btn btn-danger">Delete</button>
+</form>

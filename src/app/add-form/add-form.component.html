@@ -1,0 +1,78 @@
+<form #form="ngForm" (ngSubmit)="submitForm(form)">
+    <div>
+      <label for="image">Image:</label>
+      <input ngModel name="image" type="text" id="image" class="form-control">
+    </div>
+    <div>
+      <label for="title">Title:</label>
+      <input
+        required minlength="5"
+        ngModel
+        type="text"
+        id="title"
+        class="form-control" #title="ngModel" (change)="log(title)"
+        name="title">
+      <div
+        class="alert alert-danger" *ngIf="title.touched && !title.valid">
+        <div *ngIf="title.errors.required">
+          Title is required
+        </div>
+        <div *ngIf="title.errors.minlength">
+          Title minimal length is {{title.errors.minlength.requiredLength }} characters
+        </div>
+      </div>
+    </div>
+    <div>
+      <label for="date">Date:</label>
+      <input ngModel name="date" type="date" id="date" class="form-control">
+    </div>
+    <div>
+      <label for="time">Time:</label>
+      <input ngModel name="time" type="time" id="time" class="form-control">
+    </div>
+    <div>
+      <label for="location">Location:</label>
+      <input ngModel name="location" type="text" id="location" class="form-control">
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <input ngModel name="address" type="text" id="address" class="form-control">
+    </div>
+    <div>
+      <label for="city">City:</label>
+      <input ngModel name="city" type="text" id="city" class="form-control">
+    </div>
+    <div>
+      <label for="state">State:</label>
+      <input ngModel name="state" type="text" id="state" class="form-control">
+    </div>
+    <div>
+      <label for="zip">Zip:</label>
+      <input ngModel name="zip" type="text" id="zip" class="form-control">
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea ngModel name="description" type="text" id="description" class="form-control"></textarea>
+    </div>
+    <div ngModelGroup="categories">
+      <div>
+        <input type="checkbox" ngModel name="socialgood">Social Good
+        <input type="checkbox" ngModel name="meetup">Meetup
+        <input type="checkbox" ngModel name="music">Music
+      </div>
+    </div>
+    <div>
+      <label for="organizer">Organizer:</label>
+      <input ngModel name="organizer" type="text" id="organizer" class="form-control">
+    </div>
+    <div>
+      <label for="orgagizerWebsite">Organizer Website:</label>
+      <input ngModel name="orgagizerWebsite" type="text" id="orgagizerWebsite" class="form-control">
+    </div>
+    <div>
+      <label for="organizerInfo">Organizer Info:</label>
+      <input ngModel name="organizerInfo" type="text" id="organizerInfo" class="form-control">
+    </div>
+    <p>{{form.value | json}}</p>
+    <button [disabled]="!form.valid">Add New Event</button>
+  </form>

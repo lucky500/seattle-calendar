@@ -1,0 +1,14 @@
+<h3>Events</h3>
+<div *ngFor="let event of events | async" class="panel panel-default">
+  <div class="panel-body">
+    <img src="{{event.image}}" class="img-thumbnail list-img" alt="">
+    <h3 (click)="goToDetailPage(event)"><em>{{event.title}}</em></h3>
+    <p>{{event.date}} - {{event.time}}</p>
+    <p>{{event.location}}</p>
+    <p>{{event.description}}</p>
+    <div *ngIf="currentRoute === '/admin'">
+      <hr>
+      <app-edit [selectedEvent]="event"></app-edit>
+    </div>
+  </div>
+</div>
