@@ -1,5 +1,14 @@
 <div>
   <h3>{{(eventToDisplay | async)?.title}}</h3>
-  <h3>{{(eventToDisplay | async)?.date}}</h3>
-  <h3>{{(eventToDisplay | async)?.location}}</h3>
+  <p>{{(eventToDisplay | async)?.date}}</p>
+  <p>{{(eventToDisplay | async)?.time}}</p>
+  <p>{{(eventToDisplay | async)?.location}}</p>
+  <p>{{(eventToDisplay | async)?.description}}</p>
 </div>
+
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCGJ3838I3mxpWsIfUc8CdIwYzpEj_b9Bg&q=Epicodus+Seattle+WA" allowfullscreen>
+</iframe>

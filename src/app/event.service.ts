@@ -25,10 +25,10 @@ export class EventService {
   updateEvent(localUpdatedEvent){
     var eventEntryInFirebase = this.getEventById(localUpdatedEvent.$key);
     eventEntryInFirebase.update({
-      // image:    localUpdatedEvent.image,
+      image:    localUpdatedEvent.image,
       title:    localUpdatedEvent.title,
       date:     localUpdatedEvent.date,
-      // time:     localUpdatedEvent.time,
+      time:     localUpdatedEvent.time,
       location: localUpdatedEvent.location,
       address:  localUpdatedEvent.address,
       city:     localUpdatedEvent.city,
@@ -36,7 +36,7 @@ export class EventService {
       zip:      localUpdatedEvent.zip,
       description: localUpdatedEvent.description,
       organizer:   localUpdatedEvent.organizer,
-      organizerWebsite: localUpdatedEvent.organizerWebsite,
+      orgagizerWebsite: localUpdatedEvent.orgagizerWebsite,
       organizerInfo:  localUpdatedEvent.organizerInfo
     });
   }
