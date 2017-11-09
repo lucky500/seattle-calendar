@@ -1,16 +1,59 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" routerLink="">Seattle Calendar</a>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a routerLink="list">List</a></li>
-      <li><a routerLink="detail">Detail</a></li>
-      <li><a routerLink="about">About</a></li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Seattle Calendar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="list">List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about">About</a>
+      </li>
+      <button *ngIf="(authenticationService.user | async)" class="btn btn-success">
+        <a routerLink="user">User Access</a>
+      </button>
+     <!--  <li *ngIf="(authenticationService.user | async)"><a routerLink="user">User Access</a></li> -->
     </ul>
+   <!--  <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
   </div>
 </nav>
+
 
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+
+<footer class="footer">
+  <div class="container text-center">
+    <!-- <div >
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div> -->
+    <div class="form-group" *ngIf="!(authenticationService.user | async)">
+      <input  type="text" [(ngModel)]="email" placeholder="email">
+      <input  type="password" [(ngModel)]="password" placeholder="password">
+
+      <button type="button" class="btn btn-info" (click)="signup()" [disabled]="!email || !password">
+        <a routerLink="">Signup</a>
+      </button>
+
+      <button type="button" class="btn btn-info" (click)="login()" [disabled]="!email || !password">
+        <a routerLink="">Login</a>
+      </button>
+    </div>
+
+    <button class="btn btn-danger" (click)="logout()" *ngIf="authenticationService.user | async">
+      <a routerLink="">Logout</a>
+    </button>
+  </div>
+</footer>

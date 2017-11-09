@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthenticationService } from './authentication.service';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { masterFirebaseConfig} from './api-keys';
@@ -45,9 +47,10 @@ export const firebaseConfig = {
     HttpModule,
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [EventService],
+  providers: [EventService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

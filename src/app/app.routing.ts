@@ -29,7 +29,7 @@ const appRoutes: Routes = [
     component: DetailComponent
   },
   {
-    path: 'admin',
+    path: 'user',
     component: AdminComponent
   }
  ];

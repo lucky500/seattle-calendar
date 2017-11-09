@@ -1,0 +1,22 @@
+nav .btn-success {
+  position: absolute;
+  right: 40px;
+}
+
+footer {
+  background-color: #343a40;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  height: 65px;
+}
+
+footer input {
+  height: 35px;
+  margin-left: 10px;
+}
+
+footer button {
+  margin-bottom: 3px;
+  padding: 0.52rem 2rem;;
+  margin-left: 10px;
+}

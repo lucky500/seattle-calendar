@@ -1,18 +1,45 @@
-<form>
-  <label>Filter by Title:</label>
-    <input type="text" name="search" [(ngModel)]="term">
-</form>
-<h3>Events</h3>
-<div *ngFor="let event of events | async | categoryFilter:term" class="panel panel-default">
-  <div class="panel-body">
-    <img src="{{event.image}}" class="img-thumbnail list-img" alt="">
-    <h3 (click)="goToDetailPage(event)"><em>{{event.title}}</em></h3>
-    <p>{{event.date}} - {{event.time}}</p>
-    <p>{{event.location}}</p>
-    <p>{{event.description}}</p>
-    <div *ngIf="currentRoute === '/admin'">
-      <hr>
-      <app-edit [selectedEvent]="event"></app-edit>
+<div class="container">
+  <div class="row">
+    <div *ngIf="currentRoute === '/' || currentRoute === '/list'" class="col-sm-12 col-md-4"></div>
+    <div class="col-sm-12 col-md-8 mt-3">
+      <form class="mb-3" *ngIf="currentRoute === '/' || currentRoute === '/list'">
+        <label>Filter by Title:</label>
+          <input type="text" name="search" [(ngModel)]="term">
+      </form>
+      <div *ngFor="let event of events | async | categoryFilter:term" class="card">
+        <h3 class="card-header">{{event.title}}</h3>
+        <div class="card-body">
+          <h5 class="card-title">{{event.location}}</h5>
+          <h6 class="card-subtitle text-muted">{{event.city}}, {{event.state}}</h6>
+        </div>
+        <img style="height: 350px; width: 350; display: block;" src="{{event.image}}" alt="Card image" (click)="goToDetailPage(event)">
+        <div class="card-body">
+          <p class="card-text">{{event.description}}</p>
+          <a href="{{event.organizerWebsite}}" class="card-link">{{event.organizerWebsite}}</a>
+        </div>
+        <div class="card-footer text-muted">
+          {{event.date}}, at {{event.time}}
+        </div>
+        <div *ngIf="currentRoute === '/user'">
+            <hr>
+            <app-edit [selectedEvent]="event"></app-edit>
+          </div>
+        </div>
+      <!-- </div> -->
+      <!-- <div *ngFor="let event of events | async | categoryFilter:term" class="panel panel-default">
+        <div class="panel-body">
+          <img src="{{event.image}}" class="img-thumbnail list-img" alt="">
+          <h3 (click)="goToDetailPage(event)"><em>{{event.title}}</em></h3>
+          <p>{{event.date}} - {{event.time}}</p>
+          <p>{{event.location}}</p>
+          <p>{{event.description}}</p>
+          <div *ngIf="currentRoute === '/user'">
+            <hr>
+            <app-edit [selectedEvent]="event"></app-edit>
+          </div>
+        </div>
+      </div> -->
     </div>
   </div>
 </div>
+
