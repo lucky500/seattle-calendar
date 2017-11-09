@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div *ngIf="currentRoute === '/' || currentRoute === '/list'" class="col-sm-12 col-md-4"></div>
-    <div class="col-sm-12 col-md-8 mt-3">
+    <div class="col-sm-12 col-md-2"></div>
+    <div *ngIf="currentRoute === '/' || currentRoute === '/list'" class="col-sm-12 col-md-8 mt-3">
       <form class="mb-3" *ngIf="currentRoute === '/' || currentRoute === '/list'">
         <label>Filter by Title:</label>
           <input type="text" name="search" [(ngModel)]="term">
