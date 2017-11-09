@@ -14,7 +14,6 @@ export class AddFormComponent implements OnInit {
   ngOnInit() {
   }
 
-
   submitForm(form){
     this.eventService.addEvent(form.value);
   }

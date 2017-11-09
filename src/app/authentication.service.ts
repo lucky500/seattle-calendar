@@ -15,10 +15,10 @@ export class AuthenticationService {
 
   signup(email: string, password: string) {
     this.afAuth.auth.createUserWithEmailAndPassword (email, password).then(value => {
-      console.log('Account created.', value);
+      alert('Account created successfully.');
     })
     .catch(err => {
-      console.log("Account not created:", err.message);
+      alert("Account not created:" + err.message);
     });
   }
 

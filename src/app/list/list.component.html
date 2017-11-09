@@ -10,7 +10,7 @@
     <p>{{event.date}} - {{event.time}}</p>
     <p>{{event.location}}</p>
     <p>{{event.description}}</p>
-    <div *ngIf="currentRoute === '/admin'">
+    <div *ngIf="currentRoute === '/user'">
       <hr>
       <app-edit [selectedEvent]="event"></app-edit>
     </div>

@@ -24,5 +24,4 @@ export class EditComponent implements OnInit {
       this.eventService.deleteEvent(eventToDelete);
     }
   }
-
 }

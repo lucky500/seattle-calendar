@@ -5,7 +5,7 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
       <li><a routerLink="list">List</a></li>
-      <li><a routerLink="detail">Detail</a></li>
+      <li *ngIf="(authenticationService.user | async)"><a routerLink="user">User Access</a></li>
       <li><a routerLink="about">About</a></li>
     </ul>
   </div>
@@ -14,3 +14,24 @@
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+
+<footer class="footer">
+  <div class="container">
+    <div *ngIf="!(authenticationService.user | async)">
+      <input type="text" [(ngModel)]="email" placeholder="email">
+      <input type="password" [(ngModel)]="password" placeholder="password">
+
+      <button (click)="signup()" [disabled]="!email || !password">
+        <a routerLink="">Signup</a>
+      </button>
+
+      <button (click)="login()" [disabled]="!email || !password">
+        <a routerLink="">Login</a>
+      </button>
+    </div>
+
+    <button (click)="logout()" *ngIf="authenticationService.user | async">
+      <a routerLink="">Logout</a>
+    </button>
+  </div>
+</footer>
