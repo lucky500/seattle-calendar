@@ -1,5 +1,9 @@
+<form>
+  <label>Filter by Title:</label>
+    <input type="text" name="search" [(ngModel)]="term">
+</form>
 <h3>Events</h3>
-<div *ngFor="let event of events | async" class="panel panel-default">
+<div *ngFor="let event of events | async | categoryFilter:term" class="panel panel-default">
   <div class="panel-body">
     <img src="{{event.image}}" class="img-thumbnail list-img" alt="">
     <h3 (click)="goToDetailPage(event)"><em>{{event.title}}</em></h3>

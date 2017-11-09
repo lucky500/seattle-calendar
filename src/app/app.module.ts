@@ -17,6 +17,7 @@ import { EventService } from './event.service';
 import { EditComponent } from './edit/edit.component';
 import { AdminComponent } from './admin/admin.component';
 import { AddFormComponent } from './add-form/add-form.component';
+import { CategoryFilterPipe } from './category-filter.pipe';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -35,7 +36,8 @@ export const firebaseConfig = {
     DetailComponent,
     EditComponent,
     AdminComponent,
-    AddFormComponent
+    AddFormComponent,
+    CategoryFilterPipe
   ],
   imports: [
     BrowserModule,
