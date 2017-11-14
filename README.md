@@ -36,7 +36,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
       storageBucket: "",
       messagingSenderId: "[YOUR-SENDER-ID]"
     }
-  };```
+  }```
+  
 
 Before running the tests make sure you are serving the app via `ng serve`.
 
