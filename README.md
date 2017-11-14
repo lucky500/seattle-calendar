@@ -25,7 +25,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 * _Add a api-key.ts file to your src/app folder, and add the following block of code with your API info from Firebase _
 
- ```typescript
+ typescript
   export const environment = {
     production: false,
     firebase: {
@@ -36,7 +36,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
       storageBucket: "",
       messagingSenderId: "[YOUR-SENDER-ID]"
     }
-  }```
+  }
   
 
 Before running the tests make sure you are serving the app via `ng serve`.
